@@ -1,0 +1,2 @@
+<h3 *ngIf="isBeingEdited">I am being edited</h3>
+<input type="text" [value]="initialVal" (input)="onInputChange()" (blur)="onFocusOut()"/>

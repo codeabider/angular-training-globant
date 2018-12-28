@@ -1,0 +1,21 @@
+<div>
+  <table>
+    <tr>
+      <th>S.No</th>
+      <th>Name</th>
+      <th>Age</th>
+      <th>Address</th>
+      <th>Email</th>
+      <th>Graduate</th>
+    </tr>
+    <tr *ngFor="let person of personsList; let i=index;">
+      <td class="person-number">{{ i+1 }}</td>
+      <td>{{ person.name }}</td>
+      <td>{{ person.age }}</td>
+      <td>{{ person.address }}</td>
+      <td>{{ person.email }}</td>
+      <td>{{ person.isGraduate ? 'Yes' : 'No' }}</td>
+    </tr>
+  </table>
+  <button (click)="showFilteredList()">{{ showAll ? 'Show Graduates Only' : 'Show All' }}</button>
+</div>
