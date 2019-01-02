@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PersonComponent } from './person.component';
+import { NgBootstrapFormComponent } from './ng-bootstrap-form.component';
 
-describe('PersonComponent', () => {
-  let component: PersonComponent;
-  let fixture: ComponentFixture<PersonComponent>;
+describe('NgBootstrapFormComponent', () => {
+  let component: NgBootstrapFormComponent;
+  let fixture: ComponentFixture<NgBootstrapFormComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PersonComponent ]
+      declarations: [ NgBootstrapFormComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(PersonComponent);
+    fixture = TestBed.createComponent(NgBootstrapFormComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

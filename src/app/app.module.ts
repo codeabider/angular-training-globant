@@ -1,20 +1,18 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AppComponent } from './app.component';
-import { PersonComponent } from './components/person/person.component';
-import { InputEditComponent } from './components/input-edit/input-edit.component';
+import { NgBootstrapFormModule } from './components/ng-bootstrap-form/ng-bootstrap-form.module';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    PersonComponent,
-    InputEditComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
-    NgbModule
+    FormsModule,
+    NgBootstrapFormModule
   ],
   providers: [],
   bootstrap: [AppComponent]

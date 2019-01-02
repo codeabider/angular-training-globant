@@ -1,0 +1,49 @@
+<div class="container">
+  <form class="user-data-form">
+    <div class="form-group">
+      <label for="name">Name:</label>
+      <input type="text" class="form-control" id="name" name="name" [(ngModel)]="userData.name" />
+    </div>
+
+    <div class="form-group">
+      <label for="city">City:</label>
+      <input type="text" class="form-control" id="city" name="city" [(ngModel)]="userData.city" />
+    </div>
+
+    <button
+      class="btn btn-primary"
+      (click)="showData()"
+      placement="bottom"
+      ngbTooltip="Submit Data">
+        Done
+    </button>
+  </form>
+
+  <ngb-accordion #accordian="ngbAccordion" *ngIf="tableData.name.length && tableData.city.length">
+    <ngb-panel title="Expand for Details">
+      <ng-template ngbPanelContent>
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>City</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>{{ tableData.name }}</td>
+              <td>{{ tableData.city }}</td>
+            </tr>
+          </tbody>
+        </table>
+        <button
+          class="btn btn-secondary"
+          (click)="resetData()"
+          placement="right"
+          ngbTooltip="Reset Data">
+            Reset
+        </button>
+      </ng-template>
+    </ngb-panel>
+  </ngb-accordion>
+</div>
