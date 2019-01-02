@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { NgBootstrapFormModule } from './components/ng-bootstrap-form/ng-bootstrap-form.module';
+import { AngularMaterialFormModule } from './components/angular-material-form/angular-material-form.module';
 import { FormsModule } from '@angular/forms';
 
 @NgModule({
@@ -12,7 +12,7 @@ import { FormsModule } from '@angular/forms';
   imports: [
     BrowserModule,
     FormsModule,
-    NgBootstrapFormModule
+    AngularMaterialFormModule
   ],
   providers: [],
   bootstrap: [AppComponent]

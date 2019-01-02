@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-ng-bootstrap-form',
-  templateUrl: './ng-bootstrap-form.component.html',
-  styleUrls: ['./ng-bootstrap-form.component.css']
+  selector: 'app-angular-material-form',
+  templateUrl: './angular-material-form.component.html',
+  styleUrls: ['./angular-material-form.component.css']
 })
-export class NgBootstrapFormComponent implements OnInit {
+export class AngularMaterialFormComponent implements OnInit {
   userData: any;
   tableData: any;
 
@@ -38,5 +38,4 @@ export class NgBootstrapFormComponent implements OnInit {
       city: ''
     };
   }
-
 }
