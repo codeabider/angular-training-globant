@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Person } from '../../interfaces/person';
+// import { Person } from '../../interfaces/person';
+// note: if we do not export the interface, we do not need to explicitly import it
+// (angular checks for a TS file to look for inteface definition)
 
 @Component({
   selector: 'app-person',
