@@ -11,7 +11,6 @@ export class EditPersonComponent implements OnInit {
   @Input() empDetails: Person;
   @Output() dataUpdated = new EventEmitter<FormGroup>();
 
-
   empDetailsForm: FormGroup;
   positions: string[] = ['Developer', 'Tester', 'Manager', 'Sr Manager', 'Architect', 'CEO'];
 
