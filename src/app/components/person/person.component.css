@@ -1,10 +1,10 @@
 table {
   margin: 0 0 10px;
-  /* border: 1px solid black; */
+  border: 1px solid black;
   padding: 5px;
 }
 td {
-  /* border: 1px solid black; */
+  border: 1px solid black;
   padding: 5px;
 }
 .person-number {
