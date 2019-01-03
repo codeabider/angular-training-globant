@@ -1,4 +1,4 @@
-import { Directive, ElementRef, HostListener, Input } from '@angular/core';
+import { Directive, ElementRef, HostListener, Input, Output } from '@angular/core';
 
 @Directive({
   selector: '[appMouseEvents]'
@@ -7,18 +7,29 @@ export class MouseEventsDirective {
   element: any;
 
   @Input() defaultColor: string;
+  @Input() appMouseEvents: boolean;
 
   constructor(elementRef: ElementRef) {
-    // console.log(elementRef.nativeElement);
     this.element = elementRef.nativeElement;
   }
 
   @HostListener('mouseover') onMouseOver() {
-    this.element.style.backgroundColor = '#a93371';
+    this.changeBackground('#a93371');
   }
 
   @HostListener('mouseout') onMouseOut() {
-    this.element.style.backgroundColor = this.defaultColor;
+    this.changeBackground(this.defaultColor);
   }
 
+  changeBackground = (color: string, force?: boolean): void => {
+    if (this.appMouseEvents) {
+      this.element.style.backgroundColor = color;
+    } else {
+      this.element.style.backgroundColor = 'rgba(0, 0 ,0 , .12)';
+    }
+
+    if (force) {
+      this.element.style.backgroundColor = color;
+    }
+  }
 }

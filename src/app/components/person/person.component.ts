@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChildren, QueryList } from '@angular/core';
 import { Person } from '../../interfaces/person';
+import { MouseEventsDirective } from '../../directives/mouse-events.directive';
 // note: if we do not export the interface, we do not need to explicitly import it
 // (angular checks for a TS file to look for inteface definition)
 
@@ -52,6 +53,8 @@ const PERSON_DATA: Person[] = [
   styleUrls: ['./person.component.css']
 })
 export class PersonComponent implements OnInit {
+  @ViewChildren(MouseEventsDirective) editButtons: QueryList<MouseEventsDirective>;
+
   personsList: Person[];
   selectedPerson: Person;
   selectedRowIndex: number;
@@ -67,6 +70,7 @@ export class PersonComponent implements OnInit {
   editDetails(person: Person) {
     this.showEditableDetails = true;
     this.selectedPerson = person;
+    this.editButtons['_results'].map( button => button.changeBackground('rgba(0, 0 ,0 , .12)') );
   }
 
   onDataUpdate(updatedDetails: Person) {
@@ -79,5 +83,6 @@ export class PersonComponent implements OnInit {
     // note: better way to do this is by using Observable stream of data arrays,
     // since angular mat table doesn't update simply when dataSource channges
     this.showEditableDetails = false;
+    this.editButtons['_results'].map( button => button.changeBackground('#ff4081', true) );
   }
 }

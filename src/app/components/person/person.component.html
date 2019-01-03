@@ -37,9 +37,12 @@
         <button
           mat-raised-button
           color="accent"
+          [disabled]="showEditableDetails"
           (click)="editDetails(person)"
-          appMouseEvents
+
+          [appMouseEvents]="!showEditableDetails"
           defaultColor="#ff4081"
+
           placement="right"
           ngbTooltip="Edit employee details">
             Edit
