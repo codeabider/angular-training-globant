@@ -1,4 +1,4 @@
-interface Person {
+export interface Person {
   id: number;
   name: string;
   age: number;
@@ -6,3 +6,14 @@ interface Person {
   email: string;
   isGraduate: boolean;
 }
+
+// export class Person {
+//   constructor(
+//     id: number,
+//     name: string,
+//     age: number,
+//     address: string,
+//     email: string,
+//     isGraduate: boolean
+//   ) { }
+// }
