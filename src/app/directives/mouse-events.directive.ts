@@ -22,14 +22,10 @@ export class MouseEventsDirective {
   }
 
   changeBackground = (color: string, force?: boolean): void => {
-    if (this.appMouseEvents) {
+    if (this.appMouseEvents || force) {
       this.element.style.backgroundColor = color;
     } else {
       this.element.style.backgroundColor = 'rgba(0, 0 ,0 , .12)';
-    }
-
-    if (force) {
-      this.element.style.backgroundColor = color;
     }
   }
 }
