@@ -1,4 +1,4 @@
-import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Person } from '../../interfaces/person';
 // note: if we do not export the interface, we do not need to explicitly import it
 // (angular checks for a TS file to look for inteface definition)
@@ -52,8 +52,6 @@ const PERSON_DATA: Person[] = [
   styleUrls: ['./person.component.css']
 })
 export class PersonComponent implements OnInit {
-  @ViewChild('personTable') personTable: ElementRef;
-
   personsList: Person[];
   selectedPerson: Person;
   selectedRowIndex: number;
