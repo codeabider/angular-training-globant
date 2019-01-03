@@ -4,7 +4,7 @@ export interface Person {
   age: number;
   address: string;
   email: string;
-  isGraduate: boolean;
+  position: string;
 }
 
 // export class Person {

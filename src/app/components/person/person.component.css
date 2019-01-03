@@ -1,12 +1,12 @@
-table {
-  margin: 0 0 10px;
-  /* border: 1px solid black; */
-  padding: 5px;
+h2 {
+  text-align: center;
+  margin: 20px 0;
 }
-td {
-  /* border: 1px solid black; */
-  padding: 5px;
+
+.full-width {
+  width: 100%;
 }
-.person-number {
-  font-weight: bold;
+
+.highlight {
+  background-color: lightsalmon;
 }

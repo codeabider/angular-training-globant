@@ -14,7 +14,7 @@ export class MouseEventsDirective {
   }
 
   @HostListener('mouseover') onMouseOver() {
-    this.element.style.backgroundColor = 'green';
+    this.element.style.backgroundColor = '#a93371';
   }
 
   @HostListener('mouseout') onMouseOut() {

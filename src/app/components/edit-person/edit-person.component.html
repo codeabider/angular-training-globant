@@ -1,0 +1,35 @@
+<div class="reactive-form-container mat-typography">
+  <form action="" class="example-form" [formGroup]="empDetailsForm" (submit)="updateData()">
+      <h3>Edit details for {{ empDetails.name }}</h3>
+      <mat-form-field class="example-full-width">
+        <input type="text" matInput placeholder="Employee Name" formControlName="name" />
+        <mat-error>This field is required!</mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <input type="number" matInput placeholder="Age" formControlName="age" />
+        <mat-error>This field is required!</mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <input type="text" matInput placeholder="Address" formControlName="address" />
+        <mat-error>This field is required!</mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <input type="email" matInput placeholder="Email" formControlName="email" />
+        <mat-error>This field is required!</mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <mat-select placeholder="Position" formControlName="position">
+          <mat-option [value]="position" *ngFor="let position of positions">{{ position }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <div class="button-container">
+        <button mat-raised-button color="primary" type="submit"
+          [disabled]="this.empDetailsForm.status === 'INVALID'">Done</button>
+      </div>
+    </form>
+  </div>

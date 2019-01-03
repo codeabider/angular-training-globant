@@ -1,33 +1,57 @@
 <div>
-  <table class="table table-hover">
-    <thead>
-      <tr>
-        <th>S.No</th>
-        <th>Name</th>
-        <th>Age</th>
-        <th>Address</th>
-        <th>Email</th>
-        <th *ngIf="showAll">Graduate</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let person of filteredList; let i=index;">
-        <td class="person-number">{{ i+1 }}</td>
-        <td>{{ person.name }}</td>
-        <td>{{ person.age }}</td>
-        <td>{{ person.address }}</td>
-        <td>{{ person.email }}</td>
-        <td *ngIf="showAll">{{ person.isGraduate ? 'Yes' : 'No' }}</td>
-      </tr>
-    </tbody>
+  <h2>Employee Details</h2>
+  <table mat-table [dataSource]="personsList" class="full-width mat-elevation-z8">
+    <ng-container matColumnDef="serial">
+      <th mat-header-cell *matHeaderCellDef> S No. </th>
+      <td mat-cell *matCellDef="let person"> {{person.id}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef> Name </th>
+      <td mat-cell *matCellDef="let person"> {{person.name}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="age">
+      <th mat-header-cell *matHeaderCellDef> Age </th>
+      <td mat-cell *matCellDef="let person"> {{person.age}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="address">
+      <th mat-header-cell *matHeaderCellDef> Address </th>
+      <td mat-cell *matCellDef="let person"> {{person.address}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="email">
+      <th mat-header-cell *matHeaderCellDef> Email </th>
+      <td mat-cell *matCellDef="let person"> {{person.email}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="position">
+      <th mat-header-cell *matHeaderCellDef> Position </th>
+      <td mat-cell *matCellDef="let person"> {{person.position}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="edit">
+      <th mat-header-cell *matHeaderCellDef></th>
+      <td mat-cell *matCellDef="let person">
+        <button
+          mat-raised-button
+          color="accent"
+          (click)="editDetails(person)"
+          appMouseEvents
+          defaultColor="#ff4081"
+          placement="right"
+          ngbTooltip="Edit employee details">
+            Edit
+        </button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;" [ngClass]="{'highlight': selectedRowIndex === row.id}"></tr>
   </table>
-  <button
-    (click)="showFilteredList()"
-    appMouseEvents
-    defaultColor="#007bff"
-    class="btn btn-primary"
-    placement="top"
-    ngbTooltip="This color change is taking place with the help of custom directive!">
-      {{ showAll ? 'Show Graduates Only' : 'Show All' }}
-  </button>
+
+  <div *ngIf="showEditableDetails">
+    <app-edit-person [empDetails]="selectedPerson" (dataUpdated)="onDataUpdate($event)"></app-edit-person>
+  </div>
 </div>
