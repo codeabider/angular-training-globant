@@ -7,6 +7,21 @@ h2 {
   width: 100%;
 }
 
+.buttons-column:last-of-type {
+  padding: 0;
+}
+
+.buttons-column button {
+  margin-right: 10px;
+}
+
 .highlight {
-  background-color: lightsalmon;
+  border: 2px dotted green;
+}
+
+.no-data {
+  font-size: 24px;
+  color: red;
+  border: 1px dotted red;
+  padding: 10px;
 }

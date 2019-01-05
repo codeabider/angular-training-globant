@@ -1,9 +1,9 @@
 <div>
   <h2>Employee Details</h2>
-  <table mat-table [dataSource]="personsList" class="full-width mat-elevation-z8">
+  <table mat-table [dataSource]="personsList" class="full-width mat-elevation-z8" *ngIf="personsList.length; else noData">
     <ng-container matColumnDef="serial">
       <th mat-header-cell *matHeaderCellDef> S No. </th>
-      <td mat-cell *matCellDef="let person"> {{person.id}} </td>
+      <td mat-cell *matCellDef="let person; let i=index;"> {{i + 1}} </td>
     </ng-container>
 
     <ng-container matColumnDef="name">
@@ -31,9 +31,9 @@
       <td mat-cell *matCellDef="let person"> {{person.position}} </td>
     </ng-container>
 
-    <ng-container matColumnDef="edit">
-      <th mat-header-cell *matHeaderCellDef></th>
-      <td mat-cell *matCellDef="let person">
+    <ng-container matColumnDef="modify">
+      <th mat-header-cell *matHeaderCellDef>Modify</th>
+      <td mat-cell *matCellDef="let person; let i=index;" class="buttons-column">
         <button
           mat-raised-button
           color="accent"
@@ -47,6 +47,11 @@
           ngbTooltip="Edit employee details">
             Edit
         </button>
+        <button
+          mat-stroked-button
+          [disabled]="showEditableDetails"
+          color="warn"
+          (click)="removeEmployee(i)">x</button>
       </td>
     </ng-container>
 
@@ -54,7 +59,35 @@
     <tr mat-row *matRowDef="let row; columns: displayedColumns;" [ngClass]="{'highlight': selectedRowIndex === row.id}"></tr>
   </table>
 
+  <div class="button-container">
+    <button
+      mat-raised-button
+      color="primary"
+      [disabled]="showEditableDetails"
+      (click)="editDetails()"
+      placement="top"
+      ngbTooltip="Add new employee details">
+        Add
+    </button>
+    <button
+      mat-raised-button
+      color="accent"
+      [disabled]="showEditableDetails"
+      (click)="refreshList()"
+      placement="top"
+      ngbTooltip="Refresh employee data to initial state">
+        Refresh
+    </button>
+  </div>
+
   <div *ngIf="showEditableDetails">
-    <app-edit-person [empDetails]="selectedPerson" (dataUpdated)="onDataUpdate($event)"></app-edit-person>
+    <app-edit-person
+      [empDetails]="selectedPerson"
+      (dataUpdated)="onDataUpdate($event)"
+      ></app-edit-person>
   </div>
 </div>
+
+<ng-template #noData>
+  <h2 class="no-data">Nothing to show!!</h2>
+</ng-template>

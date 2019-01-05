@@ -3,3 +3,12 @@
 /* also, in order to setup ng-bootstrap, we need to import css first; then just install ng-bootstrap package */
 /* new CLI feature could be used to add bootstrap or other libs to existing project: ng add bootstrap (no setup required) */
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+.button-container {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.button-container button {
+  margin-right: 20px;
+}
